@@ -1,17 +1,16 @@
 :root {
-  --fi: #f4d03f;     /* Fundamentación */
-  --is: #e5e5e5;     /* Profesional */
-  --ing: #7cb342;    /* Inglés */
-  --le: #1e88e5;     /* Libre elección */
+  --fi: #f4d03f;     /* Fundamentación (amarillo) */
+  --is: #e5e5e5;     /* Profesional / Disciplinar (gris) */
+  --ing: #7cb342;    /* Inglés (verde) */
+  --le: #1e88e5;     /* Libre elección (azul) */
   --border: #000;
-  --aprobada: #4CAF50;
-  --bloqueada: #bdbdbd;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #fafafa;
   margin: 20px;
+  color: #000;
 }
 
 h1 {
@@ -50,6 +49,7 @@ h1 {
 
 /* ===== MATERIA BASE ===== */
 .materia {
+  position: relative; /* necesario para la línea diagonal */
   border: 2px solid var(--border);
   margin-bottom: 8px;
   padding: 6px;
@@ -67,19 +67,25 @@ h1 {
 
 /* ===== BLOQUEADA ===== */
 .materia.bloqueada {
-  background: var(--bloqueada) !important;
   opacity: 0.35;
   cursor: not-allowed;
-  color: #000;
 }
 
-/* ===== APROBADA ===== */
+/* ===== APROBADA (línea diagonal tipo check) ===== */
 .materia.aprobada {
-  background: var(--aprobada) !important;
-  color: #000;
   font-weight: bold;
-  border: 3px solid #000;
-  opacity: 1;
+}
+
+.materia.aprobada::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 3px;
+  background: #2e7d32; /* verde check */
+  transform: rotate(-25deg);
+  pointer-events: none;
 }
 
 /* ===== COLORES POR COMPONENTE ===== */
