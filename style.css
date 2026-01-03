@@ -49,7 +49,6 @@ h1 {
 
 /* ===== MATERIA BASE ===== */
 .materia {
-  position: relative; /* necesario para la línea diagonal */
   border: 2px solid var(--border);
   margin-bottom: 8px;
   padding: 6px;
@@ -71,38 +70,35 @@ h1 {
   cursor: not-allowed;
 }
 
-/* ===== APROBADA (línea diagonal tipo check) ===== */
+/* ===== APROBADA (línea diagonal roja, contenida) ===== */
 .materia.aprobada {
   font-weight: bold;
-}
-
-.materia.aprobada::after {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  border-top: 3px solid #c62828; /* rojo */
-  transform: rotate(12deg);
-  pointer-events: none;
+  background-image:
+    linear-gradient(
+      135deg,
+      transparent 48%,
+      #c62828 49%,
+      #c62828 51%,
+      transparent 52%
+    );
+  background-size: 100% 100%;
 }
 
 /* ===== COLORES POR COMPONENTE ===== */
 .materia[data-comp="FI"] {
-  background: var(--fi);
+  background-color: var(--fi);
 }
 
 .materia[data-comp="IS"] {
-  background: var(--is);
+  background-color: var(--is);
 }
 
 .materia[data-comp="ING"] {
-  background: var(--ing);
+  background-color: var(--ing);
 }
 
 .materia[data-comp="LE"] {
-  background: var(--le);
+  background-color: var(--le);
 }
 
 /* ===== TEXTO SECUNDARIO ===== */
