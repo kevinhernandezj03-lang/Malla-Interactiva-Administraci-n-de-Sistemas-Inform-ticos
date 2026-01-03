@@ -1,0 +1,88 @@
+{
+  "name": "INF",
+  "malla": {
+    "s1": [
+      ["Fundamentos de Programación", "ASI-101", 3, 3, "FI", [], "A"],
+      ["Cálculo Diferencial", "MAT-101", 4, 4, "FI", [], "A"],
+      ["Introducción a la Administración de Sistemas", "ADM-101", 3, 3, "FI", [], "A"],
+      ["Introducción a la Epistemología", "HUM-101", 3, 3, "FI", [], "A"],
+      ["Libre Elección", "LEC-101", 3, 3, "LE", [], "A"]
+    ],
+    "s2": [
+      ["Estructuras de Datos", "ASI-102", 3, 3, "IS", ["ASI-101"], "A"],
+      ["Teoría de la Administración y la Organización I", "ADM-102", 2, 2, "FI", [], "A"],
+      ["Cálculo Integral", "MAT-102", 4, 4, "FI", ["MAT-101"], "A"],
+      ["Fundamentos de Economía", "ECO-101", 3, 3, "FI", ["ADM-101"], "A"],
+      ["Libre Elección", "LEC-102", 3, 3, "LE", [], "A"],
+      ["Inglés I", "ING-101", 3, 3, "ING", [], "A"]
+    ],
+    "s3": [
+      ["Programación Orientada a Objetos", "ASI-103", 3, 3, "IS", ["ASI-102"], "A"],
+      ["Arquitectura de Computadores", "ASI-104", 3, 3, "FI", [], "A"],
+      ["Estadística I", "MAT-104", 3, 3, "FI", ["MAT-102"], "A"],
+      ["Sistemas de Información", "ASI-105", 3, 3, "IS", ["ADM-101"], "A"],
+      ["Álgebra Lineal", "MAT-103", 4, 4, "FI", [], "A"],
+      ["Inglés II", "ING-102", 3, 3, "ING", ["ING-101"], "A"]
+    ],
+    "s4": [
+      ["Análisis y Diseño de Algoritmos", "ASI-106", 3, 3, "IS", ["ASI-103"], "A"],
+      ["Bases de Datos I", "ASI-107", 3, 3, "IS", ["ASI-103"], "A"],
+      ["Planeación de Sistemas de Información", "ASI-108", 3, 5, "IS", ["ASI-105"], "A"],
+      ["Contabilidad y Costos", "ADM-103", 3, 3, "FI", [], "A"],
+      ["Investigación de Operaciones I", "MAT-105", 3, 5, "FI", ["MAT-103"], "A"],
+      ["Inglés III", "ING-103", 3, 3, "ING", ["ING-102"], "A"]
+    ],
+    "s5": [
+      ["Ingeniería de Software I", "ASI-109", 3, 3, "IS", ["ASI-106", "ASI-108"], "A"],
+      ["Programación con Tecnologías Web", "ASI-110", 3, 3, "IS", ["ASI-107"], "A"],
+      ["Optativa Cuantitativa", "MAT-OPT1", 3, 3, "FI", [], "A"],
+      ["Administración Financiera", "ADM-104", 3, 3, "FI", ["ADM-103"], "A"],
+      ["Libre Elección", "LEC-103", 3, 3, "LE", [], "A"],
+      ["Inglés IV", "ING-104", 3, 3, "ING", ["ING-103"], "A"]
+    ],
+    "s6": [
+      ["Ingeniería de Software II", "ASI-111", 3, 3, "IS", ["ASI-109"], "A"],
+      ["Sistemas Operativos", "ASI-112", 3, 3, "IS", ["ASI-104"], "A"],
+      ["Sistemas Inteligentes Computacionales", "ASI-113", 3, 3, "IS", ["A"], "A"],
+      ["Optativa Cuantitativa", "MAT-OPT2", 3, 3, "FI", [], "A"],
+      ["Optativa Profesional", "ASI-OPT1", 3, 3, "IS", [], "A"],
+      ["Libre Elección", "LEC-104", 3, 3, "LE", [], "A"]
+    ],
+    "s7": [
+      ["Auditoría de Sistemas I", "ASI-114", 3, 3, "IS", ["ASI-108", "ASI-112"], "A"],
+      ["Fundamentos de Redes de Datos", "ASI-115", 3, 3, "IS", ["ASI-112"], "A"],
+      ["Psicología Social", "HUM-102", 3, 3, "FI", ["A"], "A"],
+      ["Optativa Profesional", "ASI-OPT2", 3, 3, "IS", [], "A"],
+      ["Libre Elección", "LEC-105", 3, 3, "LE", [], "A"],
+      ["Libre Elección", "LEC-106", 3, 3, "LE", [], "A"]
+    ],
+    "s8": [
+      ["Modelos de Gestión de Tecnologías de la Información", "ASI-116", 3, 3, "IS", ["ASI-114"], "A"],
+      ["Formulación y Evaluación de Proyectos", "ADM-106", 3, 3, "IS", ["ADM-104"], "A"],
+      ["Gerencia Estratégica del Talento Humano", "ADM-105", 2, 2, "FI", ["B"], "A"],
+      ["Metodología de Investigación", "ASI-117", 3, 3, "IS", ["MAT-104", "B"], "A"],
+      ["Tendencias en Sistemas Informáticos", "ASI-118", 3, 3, "IS", ["B"], "A"],
+      ["Libre Elección", "LEC-107", 3, 3, "LE", [], "A"]
+    ],
+    "s9": [
+      ["Arquitectura Empresarial", "ASI-119", 3, 3, "IS", ["ASI-116"], "A"],
+      ["Gerencia de Proyectos Tecnológicos", "ASI-120", 3, 3, "IS", ["ADM-106", "ADM-105"], "A"],
+      ["Legislación Tecnológica", "ASI-121", 3, 3, "IS", ["A"], "A"],
+      ["Optativa Profesional", "ASI-OPT3", 3, 3, "IS", [], "A"],
+      ["Libre Elección", "LEC-108", 3, 3, "LE", [], "A"],
+      ["Libre Elección", "LEC-109", 3, 3, "LE", [], "A"]
+    ],
+    "s10": [
+      ["Práctica Profesional", "ASI-122", 7, 7, "IS", ["C"], "A"],
+      ["Trabajo de Grado", "ASI-123", 6, 6, "IS", ["ASI-117", "C"], "A"],
+      ["Libre Elección", "LEC-110", 3, 3, "LE", [], "A"],
+      ["Libre Elección", "LEC-111", 3, 3, "LE", [], "A"]
+    ]
+  },
+  "categories": {
+    "FI": ["#F7D44C", "Fundamentación"],
+    "IS": ["#F2F2F2", "Disciplinar o Profesional"],
+    "LE": ["#2196F3", "Libre Elección"],
+    "ING": ["#4CAF50", "Inglés"]
+  }
+}
