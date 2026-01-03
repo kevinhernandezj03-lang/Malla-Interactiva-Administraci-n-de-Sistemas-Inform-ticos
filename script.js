@@ -150,9 +150,10 @@ function iniciar(data) {
 
         mat.innerHTML = `
           ${nombre}
-          <small>${codigo} (${creditosMat} cr)</small>
+          <small>${creditosMat} créditos</small>
         `;
 
+        
         const bloqueada = !cumplePrerequisitos(prereq, reglas);
 
         if (bloqueada) mat.classList.add("bloqueada");
