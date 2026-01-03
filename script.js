@@ -9,6 +9,9 @@ function iniciar(data) {
   const statsDiv = document.getElementById("stats");
   const categorias = data.categories;
 
+  /* =======================
+     CÁLCULO DE CRÉDITOS
+     ======================= */
   function calcularCreditos() {
     let totalGeneral = 0;
     let aprobGeneral = 0;
@@ -47,6 +50,9 @@ function iniciar(data) {
     };
   }
 
+  /* =======================
+     REGLAS ESPECIALES A/B/C
+     ======================= */
   function reglasEspeciales(creditos) {
     const isAprob = creditos.aprobPorComp["IS"] || 0;
 
@@ -57,8 +63,46 @@ function iniciar(data) {
     };
   }
 
+  /* =======================
+     VALIDAR PRERREQUISITOS
+     ======================= */
+  function cumplePrerequisitos(prereqs, reglas) {
+    return prereqs.every(r =>
+      reglas[r] !== undefined ? reglas[r] : aprobadas.includes(r)
+    );
+  }
+
+  /* =======================
+     LIMPIEZA EN CASCADA
+     ======================= */
+  function limpiarAprobadasInvalidas(reglas) {
+    let cambio = true;
+
+    while (cambio) {
+      cambio = false;
+
+      for (let s in data.malla) {
+        data.malla[s].forEach(m => {
+          const [, codigo, , , , prereq] = m;
+
+          if (aprobadas.includes(codigo)) {
+            if (!cumplePrerequisitos(prereq, reglas)) {
+              aprobadas = aprobadas.filter(a => a !== codigo);
+              cambio = true;
+            }
+          }
+        });
+      }
+    }
+  }
+
+  /* =======================
+     MOSTRAR ESTADÍSTICAS
+     ======================= */
   function renderStats(creditos) {
-    const general = ((creditos.aprobGeneral / creditos.totalGeneral) * 100).toFixed(1);
+    const general = (
+      (creditos.aprobGeneral / creditos.totalGeneral) * 100
+    ).toFixed(1);
 
     let html = `<strong>Avance general (sin Inglés):</strong> ${general}%<br>`;
 
@@ -72,16 +116,24 @@ function iniciar(data) {
     statsDiv.innerHTML = html.slice(0, -3);
   }
 
-  function cumplePrerequisitos(prereqs, reglas) {
-    return prereqs.every(r =>
-      reglas[r] !== undefined ? reglas[r] : aprobadas.includes(r)
-    );
-  }
-
+  /* =======================
+     RENDER PRINCIPAL
+     ======================= */
   function render() {
     mallaDiv.innerHTML = "";
-    const creditos = calcularCreditos();
-    const reglas = reglasEspeciales(creditos);
+
+    // Primer cálculo
+    let creditos = calcularCreditos();
+    let reglas = reglasEspeciales(creditos);
+
+    // 🔥 Limpieza en cascada
+    limpiarAprobadasInvalidas(reglas);
+
+    // Recalcular después de limpiar
+    creditos = calcularCreditos();
+    reglas = reglasEspeciales(creditos);
+
+    localStorage.setItem("aprobadas", JSON.stringify(aprobadas));
     renderStats(creditos);
 
     for (let s in data.malla) {
@@ -95,9 +147,9 @@ function iniciar(data) {
         const mat = document.createElement("div");
         mat.className = "materia";
         mat.dataset.comp = comp;
-        mat.style.background = categorias[comp][0];
+
         mat.innerHTML = `
-          ${nombre}<br>
+          ${nombre}
           <small>${codigo} (${creditosMat} cr)</small>
         `;
 
