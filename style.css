@@ -4,6 +4,8 @@
   --ing: #7cb342;    /* Inglés */
   --le: #1e88e5;     /* Libre elección */
   --border: #000;
+  --aprobada: #4CAF50;
+  --bloqueada: #bdbdbd;
 }
 
 body {
@@ -46,7 +48,7 @@ h1 {
   padding-bottom: 4px;
 }
 
-/* ===== MATERIA ===== */
+/* ===== MATERIA BASE ===== */
 .materia {
   border: 2px solid var(--border);
   margin-bottom: 8px;
@@ -56,27 +58,28 @@ h1 {
   text-align: center;
   background: #fff;
   transition: transform 0.1s ease, opacity 0.1s ease;
+  color: #000;
 }
 
 .materia:hover {
   transform: scale(1.02);
 }
 
-/* ===== ESTADOS ===== */
+/* ===== BLOQUEADA ===== */
 .materia.bloqueada {
+  background: var(--bloqueada) !important;
   opacity: 0.35;
   cursor: not-allowed;
+  color: #000;
 }
 
+/* ===== APROBADA ===== */
 .materia.aprobada {
-  text-decoration: line-through;
-  background: repeating-linear-gradient(
-    45deg,
-    #c8e6c9,
-    #c8e6c9 6px,
-    #b2dfdb 6px,
-    #b2dfdb 12px
-  ) !important;
+  background: var(--aprobada) !important;
+  color: #000;
+  font-weight: bold;
+  border: 3px solid #000;
+  opacity: 1;
 }
 
 /* ===== COLORES POR COMPONENTE ===== */
@@ -90,15 +93,13 @@ h1 {
 
 .materia[data-comp="ING"] {
   background: var(--ing);
-  color: #fff;
 }
 
 .materia[data-comp="LE"] {
   background: var(--le);
-  color: #fff;
 }
 
-/* ===== CÓDIGO Y CRÉDITOS ===== */
+/* ===== TEXTO SECUNDARIO ===== */
 .materia small {
   display: block;
   margin-top: 4px;
